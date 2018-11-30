@@ -18,7 +18,7 @@ public class Paycheck {
 	}
 
 	public void print() {
-		
+		System.out.println("Net Pay: " + getNetPay());
 	}
 	
 	public double getNetPay() {

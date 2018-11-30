@@ -6,19 +6,28 @@ import java.util.List;
 public class Commissioned extends Employee {
 	double commission;
 	double baseSalary;
-	List<Order> orders = new ArrayList<Order>();
+	List<Order> orders;
+	
+	public Commissioned(double commission, double baseSalary) {
+		this.commission = commission;
+		this.baseSalary = baseSalary;
+		this.orders = new ArrayList<Order>();
+	}
 	
 	@Override
 	public double calcGrossPay() {
-		double grossPay = baseSalary + getCommissionedAmount();
-				
-		return grossPay;
+		return baseSalary + getCommissionedAmount();
 	}
 	
 	private double getCommissionedAmount() {
-		double amount = orders.stream().mapToDouble(Order::getOrderAmount).sum();
+		double totalOrderAmount = 0;
 		
-		return amount;
+		for (Order order : orders) {
+			if (order.orderDate.getYear() == this.year && order.orderDate.getMonth() == this.month)
+				totalOrderAmount += order.orderAmount;
+		}
+		
+		return (commission * totalOrderAmount) / 100;
 	}
 
 }

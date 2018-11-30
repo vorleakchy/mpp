@@ -5,11 +5,10 @@ import java.util.List;
 
 public class Order {
 	private String orderNum;
-	private List<OrderLine> lineItems = new ArrayList<OrderLine>();
+	private List<OrderLine> lineItems;
 	
 	public Order() {
-		// Question, Should I do this in constructor?
-		// this.lineItems = new ArrayList<OrderLine>();
+		this.lineItems = new ArrayList<OrderLine>();
 	}
 	
 	public void addLineItem(String itemName) {
