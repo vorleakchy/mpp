@@ -2,6 +2,7 @@ package lab4.probc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Commissioned extends Employee {
 	double commission;
