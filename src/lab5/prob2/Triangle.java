@@ -9,6 +9,7 @@ public final class Triangle implements IShapeable {
 		this.height = height;
 	}
 	
+	@Override
 	public double computeArea() {
 		return 1/2 * base * height;
 	}

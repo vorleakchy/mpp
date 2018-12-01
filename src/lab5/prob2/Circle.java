@@ -8,6 +8,7 @@ public final class Circle implements IShapeable {
 		this.radius = radius;
 	}
 	
+	@Override
 	public double computeArea() {
 		return PI * radius;
 	}

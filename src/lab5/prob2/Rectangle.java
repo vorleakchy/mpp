@@ -9,6 +9,7 @@ public final class Rectangle implements IShapeable {
 		this.height = height;
 	}
 	
+	@Override
 	public double computeArea() {
 		return width * height;
 	}
