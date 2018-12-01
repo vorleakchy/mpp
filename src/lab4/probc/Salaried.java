@@ -1,14 +1,15 @@
 package lab4.probc;
 
 public class Salaried extends Employee {
-	double salary;
+	private double salary;
 
-	public Salaried(double salary) {
+	public Salaried(String empId, double salary) {
+		super(empId);
 		this.salary = salary;
 	}
 	
 	@Override
-	public double calcGrossPay() {
+	public double calcGrossPay(int month, int year) {
 		return salary;
 	}
 }

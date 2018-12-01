@@ -1,18 +1,24 @@
 package lab4.probc;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Order {
-	int orderNo;
-	Date orderDate;
-	double orderAmount;
-	Commissioned commissioned;
+	private String orderNo;
+	private LocalDate orderDate;
+	private double orderAmount;
 	
-	public Order(int orderNo, Date orderDate, double orderAmount, Commissioned commissioned) {
+	public Order(String orderNo, LocalDate orderDate, double orderAmount) {
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
 		this.orderAmount = orderAmount;
-		this.commissioned = commissioned;
+	}
+	
+	public String getOrderNo() {
+		return orderNo;
+	}
+	
+	public LocalDate getOrderDate() {
+		return orderDate;
 	}
 	
 	public double getOrderAmount() {

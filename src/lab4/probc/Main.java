@@ -1,6 +1,7 @@
 package lab4.probc;
 
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +10,13 @@ public class Main {
 	public static void main(String[] args) {
 		List<Employee> employees = new ArrayList<Employee>();
 		
-		Hourly hourly = new Hourly(70, 40);
-		Salaried salaried = new Salaried(8000);
-		Commissioned commissioned = new Commissioned(10, 5000);
-				
 		List<Order> orders = new ArrayList<Order>();
-		orders.add(new Order(1, new Date(), 100, commissioned));
-		orders.add(new Order(2, new Date(), 100, commissioned));
-	
-		commissioned.orders = orders;
+		orders.add(new Order("01", LocalDate.now(), 100));
+		orders.add(new Order("02", LocalDate.now(), 100));
+		
+		Hourly hourly = new Hourly("001", 70, 40);
+		Salaried salaried = new Salaried("002", 8000);
+		Commissioned commissioned = new Commissioned("003", 10, 5000, orders);		
 		
 		employees.add(hourly);
 		employees.add(salaried);

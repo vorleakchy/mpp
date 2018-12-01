@@ -1,24 +1,25 @@
 package lab4.probc;
 
 public class Paycheck {
-	double grossPay;
-	double fica;
-	double state;
-	double local;
-	double medicare;
-	double socialSecurity;
+	private double grossPay;
+	private double fica;
+	private double state;
+	private double local;
+	private double medicare;
+	private double socialSecurity;
 	
-	public Paycheck(double grossPay, double fica, double state, double local, double medicare, double socialSecurity) {
+	public Paycheck(double grossPay, Tax fica, Tax state, Tax local, 
+			Tax  medicare, Tax  socialSecurity) {
 		this.grossPay = grossPay;
-		this.fica = fica;
-		this.state = state;
-		this.local = local;
-		this.medicare = medicare;
-		this.socialSecurity = socialSecurity;
+		this.fica = fica.getValue();
+		this.state = state.getValue();
+		this.local = local.getValue();
+		this.medicare = medicare.getValue();
+		this.socialSecurity = socialSecurity.getValue();
 	}
 
 	public void print() {
-		System.out.println("Net Pay: " + getNetPay());
+		System.out.println(toString());
 	}
 	
 	public double getNetPay() {
@@ -26,10 +27,20 @@ public class Paycheck {
 	}
 	
 	private double getTotalTaxAmount() {
-		return grossPay * getTotalTaxPercentage() / 100;
+		double totalTax = fica + state + local + medicare + socialSecurity;
+	
+		return grossPay * totalTax;
 	}
 	
-	private double getTotalTaxPercentage() {
-		return fica + state + local + medicare + socialSecurity;
+	@Override
+	public String toString() {
+		return "Paystub: \n "
+				+ "  Gross Pay: " + grossPay + "\n"
+				+ "  Fica: " + fica  + "\n" 
+				+ "  State: " + state  + "\n" 
+				+ "  Local: " + local  + "\n" 
+				+ "  Medicare: " + medicare  + "\n" 
+				+ "  Social Security: " + socialSecurity  + "\n" 
+				+ "  NET PAY: " + getNetPay();
 	}
 }
