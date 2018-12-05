@@ -1,5 +1,7 @@
 package lab7;
 
+import java.util.List;
+
 public class MemberController {
 	private static MemberController instance = new MemberController();
 	
@@ -19,5 +21,9 @@ public class MemberController {
 	
 	public LibMember updateMember(LibMember member) {
 		return dataAccess.update(member.getId(), member);
+	}
+	
+	public List<LibMember> getAllMembers() {
+		return dataAccess.getAll();
 	}
 }

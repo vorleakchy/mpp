@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 public class MemberForm extends Application {
 
 	private TableView<LibMember> table = new TableView<>();
+	
 	private ObservableList<LibMember> data = FXCollections.observableArrayList();
 	private TextField memberIdTextField = new TextField();
 	private TextField firstNameTextField = new TextField();
@@ -34,6 +35,8 @@ public class MemberForm extends Application {
 	private TextField cityTextField = new TextField();
 	private TextField stateTextField = new TextField();
 	private TextField zipTextField = new TextField();
+	
+	private Button createBtn = new Button("Create");;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -84,7 +87,6 @@ public class MemberForm extends Application {
 		grid.add(zipLabel, 0, 7);
 		grid.add(zipTextField, 1, 7);
 		
-		Button createBtn = new Button("Create");
 		Button updateBtn = new Button("Update");
 		Button clearBtn = new Button("Clear");
 		HBox hbBtn = new HBox(10);
@@ -116,14 +118,7 @@ public class MemberForm extends Application {
 
 			@Override
 			public void handle(ActionEvent event) {		
-				LibMember member = getMemberInfo();
-				
-				MemberController controller = MemberController.getInstance();
-				controller.addNewMember(member);
-				data.add(member);				
-				
-				clearForm();
-				showDialog("Member has been created.");
+				createMember();
 			}
 		});
 		
@@ -135,6 +130,11 @@ public class MemberForm extends Application {
 				
 				MemberController controller = MemberController.getInstance();
 				controller.updateMember(member);
+				
+				data.clear();
+				for (LibMember libMember : controller.getAllMembers()) {
+					data.add(libMember);
+				}
 				
 				clearForm();
 				showDialog("Member has been updated.");
@@ -190,7 +190,19 @@ public class MemberForm extends Application {
 		return libMember;
 	}
 
+	private void createMember() {
+		LibMember member = getMemberInfo();
+		
+		MemberController controller = MemberController.getInstance();
+		controller.addNewMember(member);
+		data.add(member);				
+		
+		clearForm();
+		showDialog("Member has been created.");
+	}
+	
 	private void displayMemberInfo(LibMember member) {
+		createBtn.setDisable(true);
 		memberIdTextField.setDisable(true);
         memberIdTextField.setText(member.getId());
         firstNameTextField.setText(member.getFirstName());
@@ -203,6 +215,7 @@ public class MemberForm extends Application {
 	}
 	
 	private void clearForm() {
+		createBtn.setDisable(false);
 		memberIdTextField.setDisable(false);
 		memberIdTextField.clear();
         firstNameTextField.clear();

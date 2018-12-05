@@ -1,6 +1,8 @@
 package lab7;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DataAccessImpl<K, V> implements DataAccess<K, V> {
@@ -24,5 +26,10 @@ public class DataAccessImpl<K, V> implements DataAccess<K, V> {
 	@Override
 	public V delete(K key) {
 		return dataMap.remove(key);	
+	}
+	
+	@Override
+	public List<V> getAll() {
+		return new ArrayList<>(dataMap.values());
 	}
 }
