@@ -30,10 +30,11 @@ public class Main {
 				add("Number of new job applicants: 12");
 			}
 		};
-		BillingDept bill = new BillingDept();
 		
+		BillingDept bill = new BillingDept();
 		MarketingDept mark = new MarketingDept();	
 		SalesDept sal = new SalesDept();
+		
 		HashMap<Object, List<String>> h = new HashMap<Object, List<String>>() {
 			{
 				put(bill, billMsgs);
@@ -43,13 +44,16 @@ public class Main {
 		};
 		
 		//uncomment when you are ready
-		
-//		loadQueue(h, bill);
-//		loadQueue(h, mark);
-//		loadQueue(h, sal);
-//		Admin a = new Admin(new Department[]{bill,mark,sal});
-//		System.out.println(a.hourlyCompanyMessage());
-//		System.out.println(a.hourlyCompanyMessage());
+	
+		loadQueue(h, bill);
+		loadQueue(h, mark);
+		loadQueue(h, sal);
+		Admin a = new Admin(new Department[]{bill,mark,sal});
+		System.out.println(a.hourlyCompanyMessage());
+		System.out.println(a.hourlyCompanyMessage());
+		System.out.println(a.hourlyCompanyMessage());
+		System.out.println(a.hourlyCompanyMessage());
+		System.out.println(a.hourlyCompanyMessage());
 	}
 	
 	private static void loadQueue(HashMap<Object, List<String>> h, Department d) {		
