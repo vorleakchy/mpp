@@ -1,0 +1,4 @@
+Problem: Because the argument in equals method of the Employee class is not Object,
+	So it doesn't override equals method.
+
+Solution: Replace "Employee" argument with "Object" in equals method of the Employee class. 

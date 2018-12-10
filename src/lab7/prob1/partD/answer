@@ -1,0 +1,4 @@
+Problem: Because when employee object already exists in tracker HashMap, 
+	there is condition to change visited variable that cause hashCode() method return different int value.
+
+Solution: Remove tracker.get(e).setVisited(true); from removeDuplicates

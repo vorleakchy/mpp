@@ -1,0 +1,5 @@
+Problem: Because there is missing hashCode() implements in Employee class.
+	HashMap tracker, tracker.containsKey(e) will look up hashCode of each employee in the collection.
+	Equal objects must produce the same hash code as long as they are equal.
+	
+Solution: We need to implement hashCode() in Employee class.
