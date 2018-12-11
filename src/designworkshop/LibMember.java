@@ -1,4 +1,4 @@
-package lab7;
+package designworkshop;
 
 public class LibMember extends Person {
 	private String id;

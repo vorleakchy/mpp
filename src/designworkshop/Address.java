@@ -1,4 +1,4 @@
-package lab7;
+package designworkshop;
 
 public class Address {
 	private String street;

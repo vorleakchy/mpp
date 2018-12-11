@@ -1,4 +1,4 @@
-package lab7;
+package designworkshop;
 
 public abstract class Person {
 	private String firstName;

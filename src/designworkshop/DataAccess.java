@@ -1,4 +1,4 @@
-package lab7;
+package designworkshop;
 
 import java.util.List;
 

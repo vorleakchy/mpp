@@ -1,4 +1,4 @@
-package lab7;
+package designworkshop;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
