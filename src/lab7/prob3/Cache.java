@@ -1,8 +1,8 @@
 package lab7.prob3;
 
-public class Cache {
+public interface Cache {
 	//shouldn't be static
-	public static long timeout() {
+	default public long timeout() {
 		//seconds
 		return 1;
 	}

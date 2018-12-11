@@ -2,7 +2,9 @@ package lab7.prob3;
 import java.time.LocalTime;
 import java.util.*;
 
-public class StaticStorage {
+public enum StaticStorage implements Cache {
+	INSTNACE;
+	
 	private HashMap<String, List<Pair>> data = new HashMap<>();
 	public void add(String key, Object value) {
 		List<Pair> list = null;
@@ -14,7 +16,7 @@ public class StaticStorage {
 		Pair p = new Pair();
 		p.dataVal = value;
 		//point in future where this item will no longer be in cache
-		p.time = LocalTime.now().plusSeconds(Cache.timeout());
+		p.time = LocalTime.now().plusSeconds(timeout());
 		list.add(p);
 		
 		data.put(key, list);
