@@ -1,0 +1,4 @@
+Lab7
+* 1.A: ArrayList 
+    * Implements: List, Collection, RandomAccess, Iterable, Cloneable, Serializable
+    * Extends: AbstractList
