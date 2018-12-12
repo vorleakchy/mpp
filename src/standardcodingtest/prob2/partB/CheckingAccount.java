@@ -1,13 +1,13 @@
-package standardcodingtest.prob2;
+package standardcodingtest.prob2.partB;
 
-public class SavingsAccount extends Account {
+public class CheckingAccount extends Account {
 	private double balance;
-	private double interestRate;
+	private double monthlyFee;
 	private String acctId;
 	
-	public SavingsAccount(String acctId, double interestRate, double startBalance) {
+	public CheckingAccount(String acctId, double fee, double startBalance) {
 		this.acctId = acctId;
-		this.interestRate = interestRate;
+		this.monthlyFee = fee;
 		this.balance = startBalance;
 	}
 
@@ -23,6 +23,6 @@ public class SavingsAccount extends Account {
 
 	@Override
 	public double computeUpdatedBalance() {
-		return balance + (interestRate * balance);
+		return balance - monthlyFee;
 	}
 }

@@ -1,4 +1,4 @@
-package standardcodingtest.prob2;
+package standardcodingtest.prob2.partB;
 
 public abstract class Account {
 	public abstract String getAccountID();

@@ -1,4 +1,4 @@
-package standardcodingtest.prob2;
+package standardcodingtest.prob2.partB;
 
 import java.util.ArrayList;
 import java.util.List;
