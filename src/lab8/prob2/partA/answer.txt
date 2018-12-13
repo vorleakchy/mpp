@@ -1,0 +1,6 @@
+- If two Employee objects have the same name, the value of compare will return 0.
+- It's not always true.
+- Example of two Employee objects having the same name but that should not be considered equal
+	Employee e1 = new Employee("John", 160000);
+	Employee e1 = new Employee("John", 90000);
+	Though, they have the same name but they have different salary. 
