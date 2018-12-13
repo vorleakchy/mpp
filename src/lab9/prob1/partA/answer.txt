@@ -1,0 +1,3 @@
+Problem: IntStream.generate will generate 1 infinite loop 
+
+Solution: We need to add limit() to specify how many time we want to run in the loop
