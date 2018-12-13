@@ -1,4 +1,4 @@
-package standardcodingtest.prob1;
+package standardcodingtest.prob1.partB;
 
 public class MarketingDept extends Department {
 	//implement

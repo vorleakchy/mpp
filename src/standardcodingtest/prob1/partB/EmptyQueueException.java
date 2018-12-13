@@ -1,4 +1,4 @@
-package standardcodingtest.prob1;
+package standardcodingtest.prob1.partB;
 
 /* Do Not Modify */
 public class EmptyQueueException extends Exception {

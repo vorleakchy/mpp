@@ -1,4 +1,4 @@
-package standardcodingtest.prob1;
+package standardcodingtest.prob1.partB;
 import java.util.*;
 
 /* Do Not Modify */
