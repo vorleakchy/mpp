@@ -1,4 +1,4 @@
-package lab8.prob1.partI;
+package lab8.prob1.partG;
 
 public class MyClass {
 	public boolean myMethod(MyClass cl) {

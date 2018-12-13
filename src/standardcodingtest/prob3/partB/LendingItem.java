@@ -1,4 +1,4 @@
-package standardcodingtest.prob3;
+package standardcodingtest.prob3.partB;
 
 public class LendingItem {
 	private int numberCopiesInLib;
