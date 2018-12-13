@@ -1,8 +1,6 @@
-package lab9.prob5.partB;
+package lab9.prob6;
 
 import java.util.*;
-
-import lab9.prob5.partA.Employee;
 
 public class Main {
 
@@ -13,12 +11,18 @@ public class Main {
 				new Employee("Thomas", "Blake", 111000), new Employee("Alice", "Richards", 101000),
 				new Employee("Donald", "Trump", 100000));
 
-		// your stream pipeline here
-
-		String result = LambdaLibrary.EMPLOYEE_NAME_FILTERED.apply(list, 100_000, 'M');
-			
-		System.out.println(result);	
+		// print the number of Employees in list whose salary > 100000 and whose
+		// last name begins
+		// with a letter that comes after the letter 'E'
 		
+		System.out.println(LambdaLibrary.EMPLOYEE_COUNT.apply(list, 100_000, 'E'));
+		
+		// print a list of sorted full names - all upper case -- of Employees
+		// with
+		// salary > 85000 and whose first name begins with a letter that comes
+		// before the letter 'R'
+		
+		System.out.println(LambdaLibrary.SORTED_FULL_NAME.apply(list, 85_000, 'R'));
 	}
 
 }
