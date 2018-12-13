@@ -31,7 +31,7 @@ public class Main {
 		final Set<String> initialSet = new HashSet<String>();
 		
 		return sets.stream()
-			.reduce(initialSet, (set1, set2) -> { set1.addAll(set2); return set1;} );
+			.reduce(initialSet, (set, setN) -> { set.addAll(setN); return set;} );
 	}
 
 }
