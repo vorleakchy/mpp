@@ -26,7 +26,7 @@ class MainTest {
 		
 		boolean output = Main.salaryGreaterThan100000(e);
 		
-		assertEquals(true, output);
+		assertTrue(output);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ class MainTest {
 		
 		boolean output = Main.salaryGreaterThan100000(e);
 		
-		assertEquals(false, output);
+		assertFalse(output);
 	}
 	
 	@Test
