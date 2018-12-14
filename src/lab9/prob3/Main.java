@@ -1,18 +1,25 @@
 package lab9.prob3;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-
-	public static void main(String[] args) {
-		Stream<String> streamString = Stream.of("a", "b", "c", "d", "e");
-		streamSection(streamString, 1, 3)
-		.forEach(System.out::println);
-	}
-	
-	private static Stream<String> streamSection(Stream<String> stream, int m, int n) {
+	public static Stream<String> streamSection(Stream<String> stream, int m, int n) {
+		//implement
 		return stream
 				.skip(m)
 				.limit(n - m + 1);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(streamSection(nextStream(), 0, 3).collect(Collectors.joining(", ")));
+		System.out.println(streamSection(nextStream(), 2, 5).collect(Collectors.joining(", ")));
+		System.out.println(streamSection(nextStream(), 7, 8).collect(Collectors.joining(", ")));	
+	}
+	
+	//support method for the main method -- for testing
+	private static Stream<String> nextStream() {
+		return Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee", "fff", "ggg", "hhh", "iii").stream();
 	}
 }
