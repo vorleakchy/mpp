@@ -13,7 +13,7 @@ public class Admin {
 //		return total;
 		
 		return list.stream()
-				.map(e -> e.computeUpdatedBalanceSum())
-				.reduce(0.0, (sum, balance) -> sum + balance);
+				.mapToDouble(Employee::computeUpdatedBalanceSum)
+				.sum();
 	}
 }

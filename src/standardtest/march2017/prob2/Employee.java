@@ -30,7 +30,7 @@ public class Employee {
 //		return total;
 		
 		return accounts.stream()
-				.map(a -> a.computeUpdatedBalance())
-				.reduce(0.0, (sum, balance) -> sum + balance);
+				.mapToDouble(Account::computeUpdatedBalance)
+				.sum();
 	}
 }
