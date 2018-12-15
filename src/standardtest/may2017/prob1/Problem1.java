@@ -10,7 +10,7 @@ public class Problem1 {
 	public static List<String> elementsInJustOne(List<String> list1, List<String> list2) {
 		//implement
 		return Stream.concat(list1.stream(), list2.stream())
-				.filter(s -> !(list1.contains(s) && list2.contains(s)))
+				.filter(s -> list1.contains(s) != list2.contains(s))
 				.collect(Collectors.toList());
 	}
 	
