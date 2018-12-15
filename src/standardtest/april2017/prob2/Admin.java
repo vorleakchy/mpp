@@ -11,11 +11,13 @@ public class Admin {
 	
 	public String hourlyCompanyMessage() {
 		StringBuilder sb = new StringBuilder();
+		
 		for (Department dept : depts) {
 			String name = dept.getName();
 			String msg = dept.nextMessage();
 			
-			sb.append(format(name, msg) + "\n");
+			sb.append(format(name, msg));
+			sb.append("\n");
 		}
 		
 		return sb.toString();

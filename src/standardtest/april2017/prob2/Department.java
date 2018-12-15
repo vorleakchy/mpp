@@ -13,13 +13,13 @@ public abstract class Department {
 	}
 	
 	public String nextMessage() {
+		// TODO Auto-generated method stub
 		try {
 			return queue.dequeue();
+		} catch (EmptyQueueException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
 		}
-		catch (EmptyQueueException e) {
-			
-		}
-		
-		return "";
+		return null;
 	}
 }

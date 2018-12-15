@@ -51,9 +51,6 @@ public class Main {
 		Admin a = new Admin(new Department[]{bill,mark,sal});
 		System.out.println(a.hourlyCompanyMessage());
 		System.out.println(a.hourlyCompanyMessage());
-		System.out.println(a.hourlyCompanyMessage());
-		System.out.println(a.hourlyCompanyMessage());
-		System.out.println(a.hourlyCompanyMessage());
 	}
 	
 	private static void loadQueue(HashMap<Object, List<String>> h, Department d) {		
