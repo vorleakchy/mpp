@@ -1,9 +1,9 @@
 package standardtest.march2017.prob2;
 
 public class CheckingAccount extends Account {
-	private double balance;
-	private double monthlyFee;
 	private String acctId;
+	private double monthlyFee;
+	private double balance;
 	
 	public CheckingAccount(String acctId, double fee, double startBalance) {
 		this.acctId = acctId;

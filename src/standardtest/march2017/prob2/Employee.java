@@ -21,12 +21,16 @@ public class Employee {
 	
 	public double computeUpdatedBalanceSum() {
 		//implement
-		double total = 0;
+//		double total = 0;
+//		
+//		for (Account acct : accounts) {
+//			total += acct.computeUpdatedBalance();
+//		}
+//		
+//		return total;
 		
-		for (Account acct : accounts) {
-			total += acct.computeUpdatedBalance();
-		}
-		
-		return total;
+		return accounts.stream()
+				.map(a -> a.computeUpdatedBalance())
+				.reduce(0.0, (sum, balance) -> sum + balance);
 	}
 }

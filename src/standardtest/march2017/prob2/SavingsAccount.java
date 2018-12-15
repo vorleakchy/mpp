@@ -1,9 +1,10 @@
 package standardtest.march2017.prob2;
 
 public class SavingsAccount extends Account {
-	private double balance;
-	private double interestRate;
+	
 	private String acctId;
+	private double interestRate;
+	private double balance;
 	
 	public SavingsAccount(String acctId, double interestRate, double startBalance) {
 		this.acctId = acctId;
