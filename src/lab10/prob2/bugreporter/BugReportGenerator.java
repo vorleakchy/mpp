@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import lab10.prob2.classfinder.ClassFinder;
 
@@ -53,7 +54,11 @@ public class BugReportGenerator {
 		List<Class<?>> classes = ClassFinder.find(PACKAGE_TO_SCAN);
 		//implement
 		
-		String report = prepareReport(classes).toString();
+		String report = classes.stream()
+				.map(this::prepareReport)
+				.collect(Collectors.joining("\n"));
+		
+		System.out.println(report);
 		
 		writeToFile(report);
 	}
@@ -68,27 +73,18 @@ public class BugReportGenerator {
 		}
 	}
 	
-	private String prepareReport(List<Class<?>> classes) {
+	private String prepareReport(Class<?> klass) {
 		StringBuilder builder = new StringBuilder();
+
+		BugReport annotation = (BugReport)klass.getAnnotation(BugReport.class);
 		
-		for (Class<?> klass : classes) {
-			BugReport annotation = (BugReport)klass.getAnnotation(BugReport.class);
+		builder.append(annotation.assignedTo());
+		builder.append("\n");
 		
-			builder.append(annotation.assignedTo());
-			builder.append("\n");
-			
-			builder.append("    " + REPORTED_BY +" " + annotation.reportedBy());
-			builder.append("\n");
-			
-			builder.append("    " + CLASS_NAME + " " + klass.getName());
-			builder.append("\n");
-			
-			builder.append("    " + DESCRIPTION + " " + annotation.description());
-			builder.append("\n");
-			
-			builder.append("    " + SEVERITY + " " + annotation.severity());
-			builder.append("\n");
-		}
+		builder.append(String.format("    %s %s\n", REPORTED_BY, annotation.reportedBy()));
+		builder.append(String.format("    %s %s\n", CLASS_NAME, klass.getName()));
+		builder.append(String.format("    %s %s\n", DESCRIPTION, annotation.description()));
+		builder.append(String.format("    %s %s\n", SEVERITY, annotation.severity()));
 		
 		return builder.toString();
 	}
