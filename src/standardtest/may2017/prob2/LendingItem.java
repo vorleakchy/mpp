@@ -11,7 +11,13 @@ public class LendingItem {
 		this.numberCopiesInLib = numberCopiesInLib;
 	}
 	
-	public boolean equals(LendingItem item) {
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) return false;
+		if (!(obj instanceof LendingItem)) return false;
+		LendingItem item = (LendingItem)obj;
+		
 		return this == item;
 	}
+	
 }
