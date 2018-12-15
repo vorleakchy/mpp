@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import java.util.logging.Logger;
+
 import lab10.prob2.classfinder.ClassFinder;
 
 /**
@@ -52,7 +53,44 @@ public class BugReportGenerator {
 		List<Class<?>> classes = ClassFinder.find(PACKAGE_TO_SCAN);
 		//implement
 		
+		String report = prepareReport(classes).toString();
+		
+		writeToFile(report);
 	}
 	
+	private void writeToFile(String text) {
+		try {
+			FileWriter writer = new FileWriter(REPORT_NAME);
+			writer.write(text);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private String prepareReport(List<Class<?>> classes) {
+		StringBuilder builder = new StringBuilder();
+		
+		for (Class<?> klass : classes) {
+			BugReport annotation = (BugReport)klass.getAnnotation(BugReport.class);
+		
+			builder.append(annotation.assignedTo());
+			builder.append("\n");
+			
+			builder.append("    " + REPORTED_BY +" " + annotation.reportedBy());
+			builder.append("\n");
+			
+			builder.append("    " + CLASS_NAME + " " + klass.getName());
+			builder.append("\n");
+			
+			builder.append("    " + DESCRIPTION + " " + annotation.description());
+			builder.append("\n");
+			
+			builder.append("    " + SEVERITY + " " + annotation.severity());
+			builder.append("\n");
+		}
+		
+		return builder.toString();
+	}
 	
 }
