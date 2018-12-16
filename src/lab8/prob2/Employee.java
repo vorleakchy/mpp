@@ -1,4 +1,4 @@
-package lab8.prob2.partA;
+package lab8.prob2;
 
 public class Employee {
 	String name;
