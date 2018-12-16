@@ -1,0 +1,6 @@
+1.
+Convert this method reference System.out::println to a lambda expression
+s -> System.out.println(s) 
+
+2.
+It's object::instanceMethod, because println is the method of out which is static variable of the System

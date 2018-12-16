@@ -1,0 +1,11 @@
+1.f.i 
+	Parameters: None
+	Free variables: s, t
+	
+1.f.ii
+	Parameters: u, v
+	Free variables: a, b
+	
+1.f.iii
+	Parameters: s, t
+	Free variables: ignoreCase 
