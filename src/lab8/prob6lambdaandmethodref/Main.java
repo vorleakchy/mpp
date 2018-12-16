@@ -1,4 +1,4 @@
-package lab8.lambdaandmethodref;
+package lab8.prob6lambdaandmethodref;
 
 import java.util.function.*;
 
