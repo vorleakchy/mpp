@@ -1,0 +1,4 @@
+List<? extends Number> nums = ints;
+nums.add(3.14); // Compile error
+
+Because 3.14 is double trying to add to the list of subtype extends Number, it preserves type safety

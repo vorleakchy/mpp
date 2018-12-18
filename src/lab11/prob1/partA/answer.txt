@@ -1,0 +1,3 @@
+List<Number> nums = ints; // Compile error
+
+Because ints is a List<Integer> trying to assign to a List<Number>, it's not covariant.
