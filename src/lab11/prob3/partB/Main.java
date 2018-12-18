@@ -1,4 +1,4 @@
-package lab11.prob11.partB;
+package lab11.prob3.partB;
 
 import java.util.ArrayList;
 import java.util.Collection;
