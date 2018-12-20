@@ -6,7 +6,10 @@ public class Problem1 {
 	//A list of Customers whose checking account id has exactly the same
 	//length (as a string) as the city name of that customer.
 	public static List<Customer> specialCustomers(List<Account> accts) {
-		return null;
+		return accts.stream()
+				.filter(a -> a.getId().length() == a.getCustomer().getAddress().getCity().length())
+				.map(a -> a.getCustomer())
+				.collect(Collectors.toList());
 		//implement
 				    
 	}
@@ -15,7 +18,12 @@ public class Problem1 {
 	//whose checking account balance is less than 100 but greater than 50
 	//and whose first name begins with the letter 'A'
 	public static List<Customer> specialAccounts(List<Customer> custs) {
-		return null;
+		return custs.stream()
+				.filter(c -> c.getCheckingAccount().getBalance() < 100)
+				.filter(c -> c.getCheckingAccount().getBalance() > 50)
+				.filter(c -> c.getFirstName().startsWith("A"))
+				.sorted(Comparator.comparing(Customer::getLastName))
+				.collect(Collectors.toList());
 		//implement          
 	}
 	

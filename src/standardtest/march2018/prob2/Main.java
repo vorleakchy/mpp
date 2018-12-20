@@ -1,6 +1,7 @@
 package standardtest.march2018.prob2;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import standardtest.march2018.prob2.*;
 public class Main {
@@ -22,12 +23,23 @@ public class Main {
 	public static List<Course> coursesTaughtByValentine(List<Student> allStudents) {
 		List<Course> coursesFound = new ArrayList<Course>();
 		//implement
-		return coursesFound;
+
+		for (Student student : allStudents) {
+			List<TranscriptEntry> entries = student.getTranscript().getTranscriptEntries();
+			
+			for (TranscriptEntry entry : entries) {
+				if (entry.getCourse().getPrimaryProfessor() == "Valentine") {
+					if (!coursesFound.contains(entry.getCourse()))
+						coursesFound.add(entry.getCourse());
+				}
+			}
+		}
 		
+		return coursesFound;
 	}
 	
 	private static List<Student> createTestData() {
-		/* uncomment when your code is ready to be tested
+		/* uncomment when your code is ready to be tested */
 		List<Course> allCourses = new ArrayList<Course>() {
 			{
 				add(new Course("Math", "Valentine"));
@@ -70,8 +82,8 @@ public class Main {
 					allCourses.get(choices[1]));
 				
 		}
-		return Arrays.asList(students); */
-		return null;
+		return Arrays.asList(students);
+//		return null;
 	}
 
 }
